@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="athp_stock_product_form_view">
+        <field name="name">athp.stock.product.form</field>
+        <field name="model">product.template</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="partner_ext_code" />
+            </field>
+        </field>
+    </record>
+</odoo>

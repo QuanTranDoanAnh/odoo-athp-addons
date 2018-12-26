@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_request_type_tree">
+        <field name="name">Request types</field>
+        <field name="model">athp.stock.request.type</field>
+        <field name="arch" type="xml">
+            <tree string="Request Types">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code" />
+                <field name="active" invisible="1"/>
+                <field name="warehouse_id"/>
+                <field name="sequence_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_request_type_form">
+        <field name="name">Request Types</field>
+        <field name="model">athp.stock.request.type</field>
+        <field name="arch" type="xml">
+            <form string="Request Types">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence_id"/>
+                            <field name="warehouse_id" groups="stock.group_stock_multi_warehouses"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Locations">
+                            <field name="default_location_src_id" attrs="{'required': [('code', '=', 'internal')]}"/>
+                            <field name="default_location_dest_id" attrs="{'required': [('code', 'in', ('internal', 'incoming'))]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="athp_stock_request_inbound_tree">
+        <field name="name">athp.stock.request.inbound.tree</field>
+        <field name="model">athp.stock.request</field>
+        <field name="arch" type="xml">
+            <tree string="Stock Requests">
+                <field name="doc_num" />
+                <field name="partner_id" />
+                <field name="request_type_code" />
+                <field name="partner_req_date" />
+                <field name="location_dest_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="athp_stock_request_outbound_tree">
+        <field name="name">athp.stock.request.outbound.tree</field>
+        <field name="model">athp.stock.request</field>
+        <field name="arch" type="xml">
+            <tree string="Stock Requests">
+                <field name="doc_num" />
+                <field name="partner_id" />
+                <field name="request_type_code" />
+                <field name="partner_req_date" />
+                <field name="location_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="athp_stock_request_form">
+        <field name="name">Stock Request Form</field>
+        <field name="model">athp.stock.request</field>
+        <field name="arch" type="xml">
+            <form string="Stock Request Form">
+                <header>
+                    <field name="id" invisible="1"/>
+                    <button name="action_submit" string="Submit" type="object" class="oe_highlight" groups="base.group_user" />
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" groups="base.group_user" />
+                    <button name="action_execute" string="Execute" type="object" class="oe_highlight" groups="base.group_user" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,confirmed,done" />
+                    <field name="has_unreg_products" invisible="1" />
+                    <field name="has_stock_pickings" invisible="1" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="location_id" groups="base.group_user" attrs="{'invisible': [('request_type_code', '=', 'incoming')]}" />
+                            <field name="location_dest_id" groups="base.group_user" attrs="{'invisible': [('request_type_code', '=', 'outgoing')]}" />
+                        </group>
+                        <group>
+                            <field name="doc_num" />
+                            <field name="partner_req_date" />
+                            <field name="submission_date" readonly="1" />
+                            <field name="validation_date" readonly="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Product Lines" name="product_lines">
+                            <field name="stock_request_line_ids" attrs="{'readonly': [('state','=','done')]}"
+                                context="{'default_stock_request_id': id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}">
+                                <tree editable="bottom">
+                                    <field name="barcode" />
+                                    <field name="partner_ext_code" />
+                                    <field name="product_id" required="1" />
+                                    <field name="stock_request_id" invisible="1"/>
+                                    <field name="state" invisible="1" />
+                                    <field name="product_uom_id" force_save="1" attrs="{'readonly': [('state', '!=', 'draft')]}" groups="product.group_uom"/>
+                                    <field name="product_uom_qty" />
+                                    <field name="location_id" domain="[('id', 'child_of', parent.location_id)]" invisible="1"/>
+                                    <field name="location_dest_id" domain="[('id', 'child_of', parent.location_dest_id)]" invisible="1"/>
+                                    <field name="source_document_notes" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Unregistered Products" name="unreg_product_lines" attrs="{'invisible': [('has_unreg_products','=',False)]}">
+                            <field name="stock_request_unregproductline_ids" attrs="{'readonly': [('state','=','done')]}"
+                                context="{'default_stock_request_id': id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}">
+                                <tree editable="bottom">
+                                    <field name="partner_ext_code" required="1" />
+                                    <field name="name" required="1" />
+                                    <field name="stock_request_id" invisible="1"/>
+                                    <field name="product_uom_id" force_save="1"/>
+                                    <field name="product_uom_qty" />
+                                    <field name="location_id" domain="[('id', 'child_of', parent.location_id)]" invisible="1"/>
+                                    <field name="location_dest_id" domain="[('id', 'child_of', parent.location_dest_id)]" invisible="1"/>
+                                    <field name="source_document_notes" />
+                                    <button name="accept_unreg" type="object" string="Accept" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Transfers" name="stock_picking_lines" attrs="{'invisible': [('has_stock_pickings','=',False)]}">
+                            <field name="stock_picking_ids" readonly="1"
+                                context="{'default_stock_request_id': id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}">
+                                <tree readonly="1">
+                                    <field name="name" />
+                                    <field name="picking_type_code" />
+                                    <field name="location_id" attrs="{'invisible': [('picking_type_code','=','incoming')]}" />
+                                    <field name="location_dest_id" attrs="{'invisible': [('picking_type_code','=','outgoing')]}" />
+                                    <field name="partner_id" />
+                                    <field name="scheduled_date" />
+                                    <field name="origin" />
+                                    <field name="state" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Additional Info" name="extra">
+                            <group>
+                                <group>
+                                    <field name="partner_person_name" />
+                                    <field name="person_responsible" />
+                                    <field name="request_type_id" />
+                                    <field name="request_type_code" />
+                                    <field name="picking_type_id" />
+                                </group>
+                                <group>
+                                    <field name="driver_name" />
+                                    <field name="truck_reg_num" />
+                                    <field name="driver_id_num" />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" string="Notes" placeholder="Add an internal note that will be printed on the Picking Operations sheet"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

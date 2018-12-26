@@ -1,0 +1,505 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* athp_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-26 22:30+0000\n"
+"PO-Revision-Date: 2018-12-26 22:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: athp_stock
+#: model:ir.ui.menu,name:athp_stock.athp_stock_root_menu
+msgid "ATHP Stock"
+msgstr "QL Kho ATHP"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Accept"
+msgstr "Chấp nhận"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_active
+msgid "Active"
+msgstr "Hiệu lực"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Add an internal note that will be printed on the Picking Operations sheet"
+msgstr "Thêm vào ghi chú nội bộ để in trên mẫu Hoạt động chuyển hàng"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Additional Info"
+msgstr "Thông tin Bổ sung"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_barcode
+msgid "Barcode"
+msgstr "Mã vạch"
+
+#. module: athp_stock
+#: selection:athp.stock.request,state:0
+#: selection:athp.stock.request.line,state:0
+msgid "Canceled"
+msgstr "Hủy"
+
+#. module: athp_stock
+#: code:addons/athp_stock/models/stock_request.py:154
+#, python-format
+msgid "Cannot add a stock move line for the product {}."
+msgstr "Không thể thêm một hoạt động chuyển hàng cho sản phẩm {}."
+
+#. module: athp_stock
+#: code:addons/athp_stock/models/stock_request.py:141
+#, python-format
+msgid "Cannot create a stock picking from this request"
+msgstr "Không thể tạo một lệnh chuyển kho cho yêu cầu này."
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_color
+msgid "Color"
+msgstr "Màu sắc"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_create_uid
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_create_uid
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_create_uid
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_create_date
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_create_date
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_create_date
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_default_location_dest_id
+msgid "Default Destination Location"
+msgstr "Địa điểm Đích mặc định"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_default_location_src_id
+msgid "Default Source Location"
+msgstr "Địa điểm nguồn mặc định"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_location_dest_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_location_dest_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_location_dest_id
+msgid "Destination Location"
+msgstr "Địa điểm đích"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_display_name
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_display_name
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_display_name
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_doc_num
+msgid "Document Number"
+msgstr "Số chứng từ"
+
+#. module: athp_stock
+#: selection:athp.stock.request,state:0
+#: selection:athp.stock.request.line,state:0
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: athp_stock
+#: selection:athp.stock.request,state:0
+#: selection:athp.stock.request.line,state:0
+msgid "Draft"
+msgstr "Sơ thảo"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_driver_id_num
+msgid "Driver Identity Number"
+msgstr "CMND Tài xế"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_driver_name
+msgid "Driver Name"
+msgstr "Tên tài xế"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Execute"
+msgstr "Thực hiện"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_has_stock_pickings
+msgid "Has Stock Pickings"
+msgstr "Có lệnh chuyển kho tương ứng"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_has_unreg_products
+msgid "Has Unreg Products"
+msgstr "Có sản phẩm chưa đăng ký"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_id
+msgid "ID"
+msgstr "ID"
+
+#. module: athp_stock
+#: selection:athp.stock.request.type,code:0
+msgid "Inbound"
+msgstr "Nhập kho"
+
+#. module: athp_stock
+#: model:ir.actions.act_window,name:athp_stock.athp_stock_inbound_requests
+msgid "Inbound Requests"
+msgstr "Yêu cầu nhập kho"
+
+#. module: athp_stock
+#: model:ir.ui.menu,name:athp_stock.athp_stock_requests_inbound
+msgid "Inbound Stock Requests"
+msgstr "Các Yêu cầu nhập kho"
+
+#. module: athp_stock
+#: selection:athp.stock.request.type,code:0
+msgid "Internal Transfer"
+msgstr "Chuyển nội bộ"
+
+#. module: athp_stock
+#: model:ir.model.fields,help:athp_stock.field_athp_stock_request_line_barcode
+msgid "International Article Number used for product identification."
+msgstr "Mã số quốc tế được sử dụng để xác định sản phẩm"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request___last_update
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line___last_update
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type___last_update
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline___last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_write_uid
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_write_uid
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_write_uid
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_write_date
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_write_date
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_write_date
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.view_request_type_form
+msgid "Locations"
+msgstr "Địa điểm"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_name
+msgid "Name"
+msgstr "Tên"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_notes
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_picking_type_id
+msgid "Operation Type"
+msgstr "Kiểu hoạt động"
+
+#. module: athp_stock
+#: selection:athp.stock.request.type,code:0
+msgid "Outbound"
+msgstr "Xuất kho"
+
+#. module: athp_stock
+#: model:ir.actions.act_window,name:athp_stock.athp_stock_outbound_requests
+msgid "Outbound Requests"
+msgstr "Các yêu cầu xuất kho"
+
+#. module: athp_stock
+#: model:ir.ui.menu,name:athp_stock.athp_stock_requests_outbound
+msgid "Outbound Stock Requests"
+msgstr "Các yêu cầu xuất kho"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_partner_id
+msgid "Partner"
+msgstr "Đối tác"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_partner_ext_code
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_partner_ext_code
+msgid "Partner Code"
+msgstr "Mã hàng (Khách hàng)"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_partner_person_name
+msgid "Partner Contact Name"
+msgstr "Tên liên hệ (Khách hàng)"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_partner_req_date
+msgid "Partner Request Date"
+msgstr "Ngày yêu cầu"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_person_responsible
+msgid "Person In Responsible"
+msgstr "Người thực hiện"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_product_id
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_product_product_partner_ext_code
+#: model:ir.model.fields,field_description:athp_stock.field_product_template_partner_ext_code
+msgid "Product Code (Partner)"
+msgstr "Mã hàng (Khách hàng)"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Product Lines"
+msgstr "Danh sách hàng"
+
+#. module: athp_stock
+#: model:ir.model,name:athp_stock.model_product_template
+msgid "Product Template"
+msgstr "Mẫu sản phẩm"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_name
+msgid "Reference"
+msgstr "Tham chiếu"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_sequence_id
+msgid "Reference Sequence"
+msgstr "Trình tự tham chiếu"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_stock_request_line_ids
+msgid "Request Lines"
+msgstr "Chi tiết yêu cầu"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_request_type_id
+msgid "Request Type"
+msgstr "Loại yêu cầu"
+
+#. module: athp_stock
+#: model:ir.actions.act_window,name:athp_stock.action_athp_stock_request_types
+#: model:ir.ui.menu,name:athp_stock.athp_stock_request_types
+#: model:ir.ui.view,arch_db:athp_stock.view_request_type_form
+#: model:ir.ui.view,arch_db:athp_stock.view_request_type_tree
+msgid "Request Types"
+msgstr "Các loại yêu cầu"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_name
+msgid "Request Types Name"
+msgstr "Tên các loại yêu cầu"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_product_uom_qty
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_product_uom_qty
+msgid "Requested Quantity"
+msgstr "Số lượng đặt"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_sequence
+msgid "Sequence"
+msgstr "Trình tự"
+
+#. module: athp_stock
+#: model:ir.ui.menu,name:athp_stock.athp_stock_settings
+msgid "Settings"
+msgstr "Thiết lập"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_source_document_notes
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_source_document_notes
+msgid "Source Document Notes"
+msgstr "Ghi chú chứng từ nguồn"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_location_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_location_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_location_id
+msgid "Source Location"
+msgstr "Địa điểm nguồn"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_state
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_state
+msgid "State"
+msgstr "Bang"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_stock_picking_ids
+msgid "Stock Pickings"
+msgstr "Lệnh chuyển kho"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_stock_request_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_stock_request_id
+#: model:ir.model.fields,field_description:athp_stock.field_stock_picking_stock_request_id
+msgid "Stock Request"
+msgstr "Yêu cầu chuyển kho"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Stock Request Form"
+msgstr "Nhập yêu cầu chuyển kho"
+
+#. module: athp_stock
+#: model:ir.ui.menu,name:athp_stock.athp_stock_requests
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_inbound_tree
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_outbound_tree
+msgid "Stock Requests"
+msgstr "Các yêu cầu chuyển kho"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_submission_date
+msgid "Submission Date"
+msgstr "Ngày gửi"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Submit"
+msgstr "Gửi"
+
+#. module: athp_stock
+#: selection:athp.stock.request,state:0
+#: selection:athp.stock.request.line,state:0
+msgid "Submitted"
+msgstr "Đã gửi"
+
+#. module: athp_stock
+#: model:ir.model,name:athp_stock.model_athp_stock_request_type
+msgid "The request type determines the document number"
+msgstr "Loại yêu cầu xác định số chứng từ"
+
+#. module: athp_stock
+#: code:addons/athp_stock/models/stock_request.py:133
+#, python-format
+msgid "There are {} products still being unregistered. You need to process them."
+msgstr "Tồn tại {} sản phẩm chưa được đăng ký. Cần phải xử lý đăng ký cho các sản phẩm."
+
+#. module: athp_stock
+#: model:ir.model.fields,help:athp_stock.field_athp_stock_request_type_default_location_dest_id
+msgid "This is the default destination location when you create a picking manually with this operation type. It is possible however to change it or that the routes put another location. If it is empty, it will check for the customer location on the partner. "
+msgstr "Đây là vị trí đích mặc định khi bạn tạo lựa chọn thủ công với loại thao tác này. Tuy nhiên, có thể thay đổi nó hoặc các tuyến đường đặt một vị trí khác. Nếu nó trống, nó sẽ kiểm tra vị trí của khách hàng trên đối tác."
+
+#. module: athp_stock
+#: model:ir.model.fields,help:athp_stock.field_athp_stock_request_type_default_location_src_id
+msgid "This is the default source location when you create a picking manually with this operation type. It is possible however to change it or that the routes put another location. If it is empty, it will check for the supplier location on the partner. "
+msgstr "Đây là vị trí nguồn mặc định khi bạn tạo lựa chọn thủ công với loại thao tác này. Tuy nhiên, có thể thay đổi nó hoặc các tuyến đường đặt một vị trí khác. Nếu nó trống, nó sẽ kiểm tra vị trí của nhà cung cấp trên đối tác. "
+
+#. module: athp_stock
+#: model:ir.model,name:athp_stock.model_stock_picking
+msgid "Transfer"
+msgstr "Dịch chuyển"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Transfers"
+msgstr "Dịch chuyển"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_truck_reg_num
+msgid "Truck Registration Number"
+msgstr "Biển số xe hàng"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_request_type_code
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_code
+msgid "Type of Operation"
+msgstr "Kiểu Giao Nhận"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_line_product_uom_id
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_unregproductline_product_uom_id
+msgid "Unit of Measure"
+msgstr "Đơn vị Đo lường"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_stock_request_unregproductline_ids
+msgid "Unregistered Product Lines"
+msgstr "Sản phẩm chưa đăng ký"
+
+#. module: athp_stock
+#: model:ir.ui.view,arch_db:athp_stock.athp_stock_request_form
+msgid "Unregistered Products"
+msgstr "Sản phẩm chưa đăng ký"
+
+#. module: athp_stock
+#: model:ir.model.fields,help:athp_stock.field_athp_stock_request_type_sequence
+msgid "Used to order the 'All Request Types' kanban view"
+msgstr "Được sử dụng để sắp xếp góc nhìn Kanban cho 'Tất cả các loại yêu cầu'"
+
+#. module: athp_stock
+#: selection:athp.stock.request,state:0
+#: selection:athp.stock.request.line,state:0
+msgid "Validated"
+msgstr "Đã kiểm tra"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_validation_date
+msgid "Validation Date"
+msgstr "Ngày Thẩm định"
+
+#. module: athp_stock
+#: model:ir.model.fields,field_description:athp_stock.field_athp_stock_request_type_warehouse_id
+msgid "Warehouse"
+msgstr "Kho hàng"
+
+#. module: athp_stock
+#: model:ir.model,name:athp_stock.model_athp_stock_request
+msgid "athp.stock.request"
+msgstr "athp.stock.request"
+
+#. module: athp_stock
+#: model:ir.model,name:athp_stock.model_athp_stock_request_line
+msgid "athp.stock.request.line"
+msgstr "athp.stock.request.line"
+
+#. module: athp_stock
+#: model:ir.model,name:athp_stock.model_athp_stock_request_unregproductline
+msgid "athp.stock.request.unregproductline"
+msgstr "athp.stock.request.unregproductline"
+

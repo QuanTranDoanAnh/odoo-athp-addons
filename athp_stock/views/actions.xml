@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    
+    <!--Actions -->
+    <record model="ir.actions.act_window" id="action_athp_stock_request_types">
+        <field name="name">Request Types</field>
+        <field name="res_model">athp.stock.request.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context" eval="{'default_code': 'incoming'}"/>
+    </record>
+    <record model="ir.actions.act_window" id="athp_stock_inbound_requests">
+        <field name="name">Inbound Requests</field>
+        <field name="res_model">athp.stock.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="athp_stock_request_inbound_tree"/>
+        <field name="domain">[('request_type','=',default_request_type_code)]</field>
+        <field name="context" eval="{'default_request_type_code': 'incoming'}"/>
+    </record>
+    <record model="ir.actions.act_window" id="athp_stock_outbound_requests">
+        <field name="name">Outbound Requests</field>
+        <field name="res_model">athp.stock.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="athp_stock_request_outbound_tree"/>
+        <field name="domain">[('request_type','=',default_request_type_code)]</field>
+        <field name="context" eval="{'default_request_type_code': 'outgoing'}"/>
+    </record>
+
+    <!-- Menus -->
+    <menuitem name="ATHP Stock" id="athp_stock_root_menu" />
+    <menuitem name="Stock Requests" id="athp_stock_requests"
+        parent="athp_stock_root_menu" sequence="1" />
+    <menuitem name="Inbound Stock Requests" id="athp_stock_requests_inbound"
+        parent="athp_stock_requests"
+        action="athp_stock_inbound_requests"
+        sequence="1" />
+    <menuitem name="Outbound Stock Requests" id="athp_stock_requests_outbound"
+        parent="athp_stock_requests"
+        action="athp_stock_outbound_requests"
+        sequence="1" />
+    <menuitem name="Settings" id="athp_stock_settings"
+        parent="athp_stock_root_menu" sequence="2" />
+    <menuitem name="Request Types" id="athp_stock_request_types"
+        parent="athp_stock_settings"
+        action="action_athp_stock_request_types"
+        sequence="1" />
+    
+</odoo>
