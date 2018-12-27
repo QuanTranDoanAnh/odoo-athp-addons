@@ -11,6 +11,8 @@
     'category': 'Stock',
     'version': '1.0.0',
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/stock_request_views.xml',
         'views/product_views.xml',
         'views/actions.xml'

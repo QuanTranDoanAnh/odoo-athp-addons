@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+request_manager,request manager,model_athp_stock_request,group_manager,1,1,1,1
+request_line_manager,request line manager,model_athp_stock_request_line,group_manager,1,1,1,1
+request_type_manager,request type manager,model_athp_stock_request_type,group_manager,1,1,1,1
+request_unreg_manager,request unreg manager,model_athp_stock_request_unregproductline,group_manager,1,1,1,1
