@@ -13,7 +13,7 @@ class StockRequest(models.Model):
         return False
 
     name = fields.Char('Reference', default='/')
-    partner_id = fields.Many2one('res.partner', string="Partner", 
+    partner_id = fields.Many2one('res.partner', string="Partner",
         required=True)
     company_id = fields.Many2one(
         'res.company', 'Company',
@@ -50,6 +50,7 @@ class StockRequest(models.Model):
     stock_picking_ids = fields.One2many('stock.picking', 'stock_request_id', string="Stock Pickings")
     submission_date = fields.Datetime(default=None)
     validation_date = fields.Datetime(default=None)
+    completion_date = fields.Datetime(default=None)
     has_unreg_products = fields.Boolean(compute='_count_unreg_products', store=False)
     has_stock_pickings = fields.Boolean(compute='_count_stock_pickings', store=False)
     picking_type_id = fields.Many2one(
@@ -110,6 +111,7 @@ class StockRequest(models.Model):
         return res
 
     def action_submit(self):
+        self._merge_registered_unregproductlines()
         self.write({'state': 'submitted', 'submission_date': fields.Datetime.now()})
         return self
     
@@ -120,17 +122,42 @@ class StockRequest(models.Model):
         return self
     
     def action_execute(self):
-        if len(self.stock_request_unregproductline_ids) > 0:
-            raise ValidationError("There are some products still unregistered")
-        else:
-            self.write({'state': 'done', 'validation_date': fields.Datetime.now()})
-            return self
+        done = True
+        for picking in self.stock_picking_ids:
+            if picking.state != 'done':
+                done = False
+                break
+        if done:
+            self.write({'state': 'done', 'completion_date': fields.Datetime.now()})
     
     def _check_unreg_products(self):
         for req in self:
             count_unreg = len(req.stock_request_unregproductline_ids)
             if count_unreg > 0:
                 raise ValidationError(_("There are {} products still being unregistered. You need to process them.").format(count_unreg))
+
+    def _merge_registered_unregproductlines(self):
+        Product = self.env['product.product']
+        RequestLine = self.env['athp.stock.request.line']
+        for unreg in self.stock_request_unregproductline_ids:
+            if unreg.partner_ext_code:
+                product = Product.search([('partner_ext_code','=', unreg.partner_ext_code),('owner_id','=',self.partner_id.id)], limit=1)
+                if product:
+                    # add to request line and delete from unregistered product list
+                    line = RequestLine.create({
+                        'product_id': product.id,
+                        'product_uom_id': unreg.product_uom_id.id,
+                        'product_uom_qty': unreg.product_uom_qty,
+                        'stock_request_id': self.id,
+                        'state': self.state,
+                        'location_id': self.location_id.id,
+                        'location_dest_id': self.location_dest_id.id,
+                        'source_document_notes': unreg.source_document_notes
+                    })
+                    if line:
+                        self.write({'stock_request_line_ids': [(4, line.id)]})
+                        unreg.unlink()
+
 
     def _create_todo_stock_picking(self):
         self.ensure_one()

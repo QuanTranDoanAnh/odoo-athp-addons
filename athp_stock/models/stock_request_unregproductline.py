@@ -20,6 +20,8 @@ class UnregisteredProductLines(models.Model):
                 'name': unreg.name,
                 'partner_ext_code': unreg.partner_ext_code,
                 'uom_id': unreg.product_uom_id.id,
+                'uom_po_id': unreg.product_uom_id.id,
+                'owner_id': self.stock_request_id.partner_id.id
             })
             if product and product.id:
                 request_line = self.env['athp.stock.request.line'].create({

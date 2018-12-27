@@ -84,9 +84,12 @@
             <form string="Stock Request Form">
                 <header>
                     <field name="id" invisible="1"/>
-                    <button name="action_submit" string="Submit" type="object" class="oe_highlight" groups="base.group_user" />
-                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" groups="base.group_user" />
-                    <button name="action_execute" string="Execute" type="object" class="oe_highlight" groups="base.group_user" />
+                    <button name="action_submit" string="Submit" type="object" class="oe_highlight" groups="base.group_user"
+                        attrs="{'invisible':[('state','!=','draft')]}" />
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" groups="base.group_user"
+                        attrs="{'invisible':[('state','!=','submitted')]}" />
+                    <button name="action_execute" string="Execute" type="object" class="oe_highlight" groups="base.group_user"
+                        attrs="{'invisible':[('state','!=','confirmed')]}" />
                     <field name="state" widget="statusbar" statusbar_visible="draft,submitted,confirmed,done" />
                     <field name="has_unreg_products" invisible="1" />
                     <field name="has_stock_pickings" invisible="1" />
@@ -103,6 +106,7 @@
                             <field name="partner_req_date" />
                             <field name="submission_date" readonly="1" />
                             <field name="validation_date" readonly="1" />
+                            <field name="completion_date" readonly="1" />
                         </group>
                     </group>
                     <notebook>
@@ -123,7 +127,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Unregistered Products" name="unreg_product_lines" attrs="{'invisible': [('has_unreg_products','=',False)]}">
+                        <page string="Unregistered Products" name="unreg_product_lines" >
                             <field name="stock_request_unregproductline_ids" attrs="{'readonly': [('state','=','done')]}"
                                 context="{'default_stock_request_id': id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}">
                                 <tree editable="bottom">

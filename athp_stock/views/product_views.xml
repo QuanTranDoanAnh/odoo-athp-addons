@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <field name="categ_id" position="after">
                 <field name="partner_ext_code" />
+                <field name="owner_id" domain="[('is_company','=',True)]" />
             </field>
         </field>
     </record>
