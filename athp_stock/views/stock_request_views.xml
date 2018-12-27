@@ -94,7 +94,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="partner_id" />
+                            <field name="partner_id" domain="[('is_company','=',True)]" />
                             <field name="location_id" groups="base.group_user" attrs="{'invisible': [('request_type_code', '=', 'incoming')]}" />
                             <field name="location_dest_id" groups="base.group_user" attrs="{'invisible': [('request_type_code', '=', 'outgoing')]}" />
                         </group>
