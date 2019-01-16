@@ -7,9 +7,14 @@ class StockRequest(models.Model):
 
     def _default_request_type_id(self):
         default_request_type_code = self.env.context.get('default_request_type_code', False)
+        request_type_rec = self.env['athp.stock.request.type']
+        warehouse_rec = self.env['stock.warehouse']
         if default_request_type_code:
-            warehouse_id = self.env['stock.warehouse'].search([('company_id', '=', self.env.user.company_id.id)], limit=1)
-            return self.env['athp.stock.request.type'].search([('code','=',default_request_type_code),('warehouse_id','=',warehouse_id.id)])[0].id
+            warehouse_id = warehouse_rec.search([('company_id', '=', self.env.user.company_id.id)], limit=1)
+            if warehouse_id: 
+                request_type_id = request_type_rec.search([('code','=',default_request_type_code),('warehouse_id','=',warehouse_id.id)], limit=1)
+                if request_type_id:
+                    return request_type_id.id
         return False
 
     name = fields.Char('Reference', default='/')
@@ -46,7 +51,11 @@ class StockRequest(models.Model):
     location_id = fields.Many2one('stock.location', string="Source Location")
     location_dest_id = fields.Many2one('stock.location', string="Destination Location")
     stock_request_line_ids = fields.One2many('athp.stock.request.line', 'stock_request_id', string="Request Lines")
-    stock_request_unregproductline_ids = fields.One2many('athp.stock.request.unregproductline', 'stock_request_id', string="Unregistered Product Lines")
+    stock_request_unregproductline_ids = fields.One2many(
+        'athp.stock.request.unregproductline', 
+        'stock_request_id', 
+        string="Unregistered Product Lines",
+        domain=[('accepted','=',False)])
     stock_picking_ids = fields.One2many('stock.picking', 'stock_request_id', string="Stock Pickings")
     submission_date = fields.Datetime(default=None)
     validation_date = fields.Datetime(default=None)
